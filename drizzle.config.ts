@@ -6,7 +6,7 @@ export default defineConfig({
   schema: './src/models/*.ts',
   dialect: 'mysql',
   dbCredentials: {
-    url: process.env.DATABASE_URL!,
+    url: "mysql://root:Anshu@2004@localhost:/lms",
   },
 });
 

@@ -2,11 +2,12 @@ import { drizzle } from "drizzle-orm/mysql2";
 import mysql from "mysql2/promise";
 
 const poolConnection = mysql.createPool({
-  host: "host",
-  user: "user",
-  database: "coursera",
+  host: "localhost",
+  user: "root",
+  database: "lms",
   connectionLimit: 10,
-  password: "password"
+  password: "mypassword",
+  port: 8080
 });
 
 export const db = drizzle({ client: poolConnection });

@@ -1,5 +1,4 @@
-import { bigint, char, date } from "drizzle-orm/cockroach-core";
-import { int, mysqlTable, varchar } from "drizzle-orm/mysql-core";
+import { int, mysqlTable, varchar, char, date } from "drizzle-orm/mysql-core";
 
 export const usersTable = mysqlTable('users_table', {
   id: int().primaryKey().autoincrement(),
