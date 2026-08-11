@@ -6,8 +6,8 @@ const poolConnection = mysql.createPool({
   user: "root",
   database: "lms",
   connectionLimit: 10,
-  password: "mypassword",
-  port: 8080
+  password: "Anshu@2004",
+  port: 3306
 });
 
 export const db = drizzle({ client: poolConnection });

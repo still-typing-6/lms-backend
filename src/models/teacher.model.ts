@@ -1,5 +1,5 @@
 import { date, int, mysqlTable, serial, varchar } from "drizzle-orm/mysql-core";
-import { usersTable } from "./user.js";
+import { usersTable } from "./user.model.js";
 
 export const teacherTable = mysqlTable("teacher_table", {
   teacherId: serial('id').primaryKey(),
