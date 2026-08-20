@@ -15,11 +15,13 @@ export const userRegistered = async (req: Request, res: Response, next: NextFunc
   }
 }
 
-export const signInUser = async (req: Request, res: Response, next: NextFunction) => {
+export const signInUser = async (req: Request, res: Response) => {
   try {
-    const result = userLogin(req.body);
+    const result = await userLogin(req.body);
+    console.log(result);
     res.cookie("token", result);
+    res.status(200).json({ message: "Login succesfully" })
   } catch (error) {
-    next(error);
+    res.status(404).json({ message: "token not get", error: error })
   }
 } 

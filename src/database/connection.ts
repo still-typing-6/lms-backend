@@ -4,9 +4,9 @@ import mysql from "mysql2/promise";
 const poolConnection = mysql.createPool({
   host: "localhost",
   user: "root",
-  database: "lms",
+  database: "lmsdb",
   connectionLimit: 10,
-  password: "Anshu@2004",
+  password: "root",
   port: 3306
 });
 

@@ -1,4 +1,5 @@
 import { registerStudent } from "../repositories/student.repository.js";
+import { registerTeacher } from "../repositories/teacher.repository.js";
 import { findUserByEmail, registerUser } from "../repositories/user.repository.js";
 import { hashPassword } from "../utils/password.js";
 import { comparePassword } from "../utils/password.js";
@@ -19,7 +20,7 @@ export const userRegister = async (student: userRegistration) => {
     }
     if (student.profileType == "Student") {
       studentRegister(regUser[0]?.id);
-    } else {
+    } else if (student.profileType == "Teacher") {
       teacherRegister(regUser[0]?.id);
     }
     return regUser[0]?.id;
@@ -42,7 +43,7 @@ export const studentRegister = async (userId: number) => {
 
 export const teacherRegister = async (userId: number) => {
   try {
-    const result = teacherRegister(userId);
+    const result = registerTeacher(userId);
     if (!result) {
       return;
     }

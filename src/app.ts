@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express, { type Application, type Request, type Response } from "express";
 import authRouter from "./routes/auth.routes.js";
 import cookieParser from "cookie-parser";
