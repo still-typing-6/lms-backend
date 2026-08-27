@@ -24,8 +24,8 @@ export const registerUser = async (user: userRegistration) => {
 };
 
 export const findUserByUserId = async (Id: number) => {
-  const result = await db.select().from(usersTable).where(eq(usersTable.id, Id));
-  return result[0]?.id ?? null;
+  const result = await db.select({ userId: usersTable.id, userRoll: usersTable.profileType }).from(usersTable).where(eq(usersTable.id, Id));
+  return result[0] ?? null;
 }
 
 export const findStudentByUserId = async (Id: number) => {

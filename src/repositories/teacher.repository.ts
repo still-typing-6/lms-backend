@@ -7,3 +7,7 @@ export const registerTeacher = async (userId: number) => {
   }).$returningId();
   return result[0]?.teacherId;
 }
+
+export const findTeacherById = async (userId: number) => {
+  const resutl = (await db.select().from(teacherTable)).values()
+}

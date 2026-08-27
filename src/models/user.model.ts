@@ -1,3 +1,4 @@
+import type { InferSelectModel } from "drizzle-orm";
 import { int, mysqlTable, varchar, char, date, mysqlEnum } from "drizzle-orm/mysql-core";
 
 export const usersTable = mysqlTable('users_table', {
@@ -10,3 +11,5 @@ export const usersTable = mysqlTable('users_table', {
   dob: date({ mode: "date" }).notNull(),
   profileType: mysqlEnum(["Student", "Teacher"]).notNull(),
 })
+
+export type User = InferSelectModel<typeof usersTable>;

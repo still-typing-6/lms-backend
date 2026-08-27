@@ -1,4 +1,3 @@
-import { time } from "console";
 import { db } from "../database/connection.js"
 import { studentTable } from "../models/student.model.js"
 

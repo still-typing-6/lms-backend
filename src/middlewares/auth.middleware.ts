@@ -16,6 +16,7 @@ export const middleware = async (req: Request, res: Response, next: NextFunction
       throw new Error("User not exist");
     }
     req.user = user;
+    console.log(req.user);
     next();
   } catch (error) {
     res.status(401).json({ message: "something went wrong", Error: error });
