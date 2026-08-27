@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from "express";
 
-export const rollAuthMiddlware = (roll: string) => {
+export const roleAuthMiddleware = (roll: string) => {
   return (req: Request, res: Response, next: NextFunction) => {
     try {
       const user = req.user;
