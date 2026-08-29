@@ -5,4 +5,10 @@ export const courseSchema = z.object({
   discrption: z.string().max(255),
 })
 
-export type courseDetail = z.infer<typeof courseSchema> 
+export const updateCourseSchema = z.object({
+  courseName: z.string().min(5).max(10).optional(),
+  discription: z.string().max(255).optional(),
+})
+
+export type courseDetail = z.infer<typeof courseSchema>
+export type updateCourseDetail = z.infer<typeof updateCourseSchema>
