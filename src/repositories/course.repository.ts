@@ -17,8 +17,9 @@ export const updateCourse = async (updateDetail: updateCourseDetail, courseId: n
   return result;
 }
 
-export const deleteCourse = async () => {
-
+export const deleteCourse = async (courseId: number) => {
+  const result = await db.delete(courseTable).where(eq(courseTable.courseId, courseId));
+  return result;
 }
 
 export const findCourseById = async (courseId: number) => {

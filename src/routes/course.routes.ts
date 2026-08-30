@@ -10,3 +10,4 @@ const courseRouter = Router();
 
 courseRouter.post("/create/course", middleware, roleAuthMiddleware("Teacher"), validate(courseSchema), createCourseController);
 courseRouter.patch("/course/:courseId", middleware, roleAuthMiddleware("Teacher"), validate(updateCourseSchema), courseOwnerMiddleware, updateCourseController);
+courseRouter.delete("/course/:")
