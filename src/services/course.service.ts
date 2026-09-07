@@ -15,3 +15,4 @@ export const deleteCourseService = async (courseId: number) => {
   const result = await deleteCourse(courseId);
   return result;
 }
+
