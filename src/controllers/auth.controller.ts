@@ -7,7 +7,7 @@ export const userRegistered = async (req: Request, res: Response, next: NextFunc
     if (!result) {
       return res.status(400).json({ message: "user registration failed", data: result })
     }
-    return res.status(201).json({ message: "user register succesfully", data: result })
+    return res.status(201).json({ message: "user registered succesfully", data: result })
   } catch (error) {
     next(error);
   }
