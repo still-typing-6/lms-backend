@@ -5,6 +5,7 @@ export const createModuleController = async (req: Request, res: Response, next: 
   try {
     if (!req?.user) {
       res.status(400).json({ message: "unauthorized" })
+      return;
     }
     const courseId = Number(req.params.courseId);
     const moduleNo = Number(req.params.moduleNo);
@@ -19,6 +20,7 @@ export const updateModuleController = async (req: Request, res: Response, next: 
   try {
     if (!req.user) {
       res.status(401).json({ message: "unauthorized" });
+      return;
     }
     const courseId = Number(req.params.courseId);
     const moduleNo = Number(req.params.moduleNo);
@@ -33,6 +35,7 @@ export const deleteModuleController = async (req: Request, res: Response, next: 
   try {
     if (!req.user) {
       res.status(401).json({ message: "unauthorized" });
+      return;
     }
     const courseId = Number(req.params.courseId);
     const moduleNo = Number(req.params.moduleNo);

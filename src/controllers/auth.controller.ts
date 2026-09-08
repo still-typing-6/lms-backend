@@ -7,7 +7,7 @@ export const userRegistered = async (req: Request, res: Response, next: NextFunc
     if (!result) {
       return res.status(400).json({ message: "user registration failed", data: result })
     }
-    return res.status(200).json({ message: "user register succesfully", data: result })
+    return res.status(201).json({ message: "user register succesfully", data: result })
   } catch (error) {
     next(error);
   }
@@ -15,9 +15,13 @@ export const userRegistered = async (req: Request, res: Response, next: NextFunc
 
 export const signInUser = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const result = await userLogin(req.body);
-    console.log(result);
-    res.cookie("token", result);
+    const token = await userLogin(req.body);
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      maxAge: 60 * 60 * 1000
+    });
     return res.status(200).json({ message: "Login succesfully" })
   } catch (error) {
     next(error);
