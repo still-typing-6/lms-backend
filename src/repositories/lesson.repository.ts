@@ -24,3 +24,13 @@ export const updateLesson = async (lessonUpdateDetail: lessonUpdateDetail, cours
   return result;
 }
 
+export const deleteLesson = async (courseId: number, moduleNo: number, lesssonNo: number) => {
+  const result = await db.delete(lessonTable).where(
+    and(
+      eq(lessonTable.courseId, courseId),
+      eq(lessonTable.moduleNo, moduleNo),
+      eq(lessonTable.lessonNo, lesssonNo)
+    )
+  )
+  return result;
+}
