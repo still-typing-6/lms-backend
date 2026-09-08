@@ -3,11 +3,11 @@ import { db } from "../database/connection.js";
 import { courseTable } from "../models/course.model.js";
 import type { courseDetail, updateCourseDetail } from "../validations/course.validation.js";
 
-export const createCourse = async (courseDetail: courseDetail, userId: number) => {
+export const createCourse = async (courseDetail: courseDetail, teacherId: number) => {
   const result = await db.insert(courseTable).values({
     courseName: courseDetail.courseName,
     description: courseDetail.description,
-    teacherId: userId,
+    teacherId: teacherId,
   }).$returningId();
   return result[0]?.courseId;
 }

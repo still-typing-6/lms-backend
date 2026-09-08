@@ -33,8 +33,4 @@ export const findStudentByUserId = async (Id: number) => {
   return result[0]?.student_id ?? null;
 }
 
-export const findTeacherByUserId = async (Id: number) => {
-  const result = await db.select().from(teacherTable).where(eq(teacherTable.userId, Id));
-  return result[0]?.teacherId ?? null;
-}
 
