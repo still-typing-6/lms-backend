@@ -8,7 +8,6 @@ export const moduleTable = mysqlTable("module_table", {
   createdAt: timestamp("created_At").notNull().defaultNow(),
   updatedAt: timestamp("updated_At").notNull().defaultNow().onUpdateNow(),
 }, (table) => [
-
   primaryKey({
     columns: [table.courseId, table.moduleNo]
   })
