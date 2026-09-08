@@ -26,7 +26,6 @@ lessonRouter.patch("/course/:courseId/module/:moduleNo/lesson/:lessonNo",
 lessonRouter.delete("/course/:courseId/module/:moduleNo/lesson/:lessonNo",
   middleware,
   roleAuthMiddleware("Teacher"),
-  validate(lessonUpdateSchema),
   courseOwnerMiddleware,
   deleteLessonController
 )

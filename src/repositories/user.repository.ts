@@ -3,7 +3,6 @@ import { usersTable } from "../models/user.model.js";
 import { eq } from "drizzle-orm";
 import type { userRegistration } from "../validations/auth.validations.js";
 import { studentTable } from "../models/student.model.js";
-import { teacherTable } from "../models/teacher.model.js";
 
 export const findUserByEmail = async (emailId: string) => {
   const result = await db.select().from(usersTable).where(eq(usersTable.email, emailId));
@@ -33,4 +32,11 @@ export const findStudentByUserId = async (Id: number) => {
   return result[0]?.student_id ?? null;
 }
 
+export const findUserByUserIdFull = async (Id: number) => {
+  const result = await db.select().from(usersTable).where(eq(usersTable.id, Id));
+  return result[0] ?? null;
+}
 
+export const updateUserPassword = async (userId: number, hashedPassword: string) => {
+  return db.update(usersTable).set({ password: hashedPassword }).where(eq(usersTable.id, userId));
+}
